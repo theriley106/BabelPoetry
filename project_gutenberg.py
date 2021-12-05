@@ -53,9 +53,8 @@ if __name__ == "__main__":
             if author not in authors:
                 authors[author] = []
             authors[author].append(val)
-    print(len(authors.keys()))
-    print(x[0])
-    quit()
+    #print(len(authors.keys()))
+    #print(x[0])
 
     for val in all_vals.keys():
         print(get_book(val))
