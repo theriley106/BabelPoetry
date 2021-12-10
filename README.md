@@ -51,11 +51,18 @@ Esentially, I wrote a script that looped through every search result on PoetryFo
 
 For each of the saved URLs it went to the page containing the plain text poem and put it into the dataset:
 
-![alt text](/static/text.png)
+<p align="center">
+  <img src="/static/text.png" width="400"/>
+</p>
+
 
 It took a really long time to download all of the poems...
 
-![alt text](/static/download.png)
+<p align="center">
+  <img src="/static/download.png" width="250"/>
+</p>
+
+
 
 This resulted in a dataset containing ~9,400 poems, which is the largest poetry dataset available online. 
 
