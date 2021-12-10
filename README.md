@@ -1,5 +1,7 @@
 # Babel Poetry
 
+## Introduction
+
 The title "Babel Poetry" is based on a short story called "The Library of Babel" by Jorge Luis Borges.
 
 In the story, there exists this fictional library in which every possible combination of letters, numbers, and punctuation exists. In theory this library would be unimaginably large, but would contain every poem, song, book, legal decision, or scientific paper that could ever be written.
@@ -18,27 +20,23 @@ So of course generating 1:1 copies of a Rupi Kaur poem isn't really something th
 
 Well it turns out this idea of text generation is a growing area of research in computer science, and a number of academic and institutional researchers are making breakthroughs in the field. A perfect example of this can be found in OpenAI's GPT-2 model, which is an unsupervised language model that is capable of generating text that's completely indistiguishable from human words. 
 
-A number of conversational AI applications are based on a fine-tuned version of GPT-2's language model -- this prompted the question: 
-
-### What if we could finetune GPT-2's language model on a dataset of poetry?
+A number of conversational AI applications are based on a fine-tuned version of GPT-2's language model -- this prompted the question: **What if we could finetune GPT-2's language model on a dataset of poetry?**
 
 Hypothetically speaking, if we had a large enough dataset of text and the computing power required, we could use transfer learning to *fine-tune* the GPT-2 model to create poetry.
 
+Machine learning models are trained on large datasets of previous work and the models are able to create new pieces that are directly influenced by prior work. In a sense this is removing (or at least heavily abstracting away) the poet away from the poetry, but from my perspective this is actually synthesizing the ideas and style of thousands of other poets to create something new.
+
+## What is it
 
 
-Machine learning models are trained on large datasets of previous work and the models are able to create new pieces that are directly influenced by prior work. In a sense this is removing (or at least heavily abstracting away) the poet away from the poetry, but from my perspective this is actually synthesizing the ideas and style of thousands of other poets
 
-One characteristic that I've noticed throughout our class is that oftentimes the same poem can be interepreted differently by different readers -- this is especially true with abstract poetry.
+## How It's Made
 
-Computer generated poetry is an interesting branching point from this idea, and it prompts the question -- if you train a neural net on hundreds of thousands of poems, would the new words generated and inspired by the training data be a poem? 
-
-# How It's Made
-
-## Step 1 - Gathering The Dataset
+### Step 1 - Gathering The Dataset
 
 So unfortunately, there weren't a ton of options available for large datasets of poems, and I knew I needed 
 
-### Plan A - ProjectGutenberg
+#### Plan A - ProjectGutenberg
 
 I was able to find something called Project Gutenburg, which is a project that works to maintain an archive of public domain books and poetry. Project Gutenberg also has a well documented public API, so it was easy enough to write a script that looped through and downloaded every piece of abstract poetry in the public domain:
 
@@ -50,7 +48,7 @@ After gathering the dataset containing all abstract poetry from their archive, I
 - It's difficult to programatically remove text that's *not* poetry from public domain books
 - The number of abstract poems in the public domain are relatively limited, so the dataset was simply not large enough to generate quality poems
 
-### Plan B - PoetryFoundation
+#### Plan B - PoetryFoundation
 
 This ended up being a bit more complex, and you can see the full code in the
 
@@ -79,13 +77,13 @@ I wanted to make it available for others to use for academic/research purposes, 
 
 ![alt text](/static/kaggle.png)
 
-# Step 2 - Training
+### Step 2 - Training
 
 I don't have a super fancy computer that could do the training really quickly, so I ended up having to train the model on my laptop, which took an exhorbinent amount of time.
 
 Luckily I started on this project at the beginning of November, so I had a decent amount of time to train the model and work through any issues.
 
-# Step 3 - Filter Results
+### Step 3 - Filter Results
 
 I wanted to comb through the collection of generated poems to remove the ones that were completely nonsense (example below). I noticed that a handful of the generated poems had fragments of poems from the training set inside, so I think I may have overfitted the model to some degree.
 
@@ -115,11 +113,11 @@ Another thing I noticed was that spacing is really difficult to get right with t
 
 I would say only about **~15%** of the generated poems had meaningful content.
 
-# Step 4 - Results
+### Step 4 - Results
 
 These are a collection of my favorite poems that were generated from the model.
 
-### Dear Son
+#### Dear Son
 
 ```
 I am proud of you,
@@ -137,7 +135,7 @@ I have no other choice,
 but to walk away.
 ```
 
-### The Most Famous Poet In History
+#### The Most Famous Poet In History
 
 ```
 The most famous poet in history
@@ -158,7 +156,7 @@ that can be used to wreck
 the world.
 ```
 
-### Mother's Hands
+#### Mother's Hands
 
 ```
 This is how my mother’s hands
@@ -183,7 +181,7 @@ This is how my mother’s hands
  each day.
 ```
 
-### One thing we don't have is love
+#### One thing we don't have is love
 
 ```
 What’s so hard about the world is that it’s a bit too much
@@ -201,7 +199,7 @@ Is there no way to love another person?
 Is there anything we don’t have?
 ```
 
-### Sober
+#### Sober
 
 ```
 A summer night,
@@ -217,7 +215,7 @@ When the sun sets I think of what I left behind.
 This summer is my summer.
 ```
 
-### Strawberries
+#### Strawberries
 
 ```
 Strawberries!
@@ -232,7 +230,7 @@ We can rest
 at ease.
 ```
 
-### 
+#### 
 
 ```
 My clothes have been collected
@@ -254,7 +252,7 @@ My clothes have been collected
  I am the child of your breath.
 ```
 
-### The City Never Sleeps
+#### The City Never Sleeps
 
 ```
 The somber pit of the city with its thick layers of glass
@@ -284,7 +282,7 @@ The somber pit of the city with its thick layers of glass
  and the empty sky,
 ```
 
-###
+####
 
 ```
 I remember you.
@@ -313,8 +311,6 @@ I remember you.
  I kept forgetting you.
 ```
 
+# Retrospective
 
-## Observations
-
-Spacing is really tough to get right.
-
+This was a really fun project to work on, and it I think it made me re-evaluate the role the reader plays in analyzing a piece of poetry.
