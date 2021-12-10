@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Babel Poetry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="/static/bootstrap-social.css" rel="stylesheet">
+</head>
+<nav class="navbar navbar-light bg-dark">
+    <div class="mr-auto">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterAbout">About</button>
+        <button onclick="location.href='https://www.kaggle.com/theriley106/collection-of-poetry'" type="button" class="btn btn-info">View Dataset</button>
+    </div>
+    <div>
+        <button onclick="location.href='https://www.kaggle.com/theriley106/collection-of-poetry'" type="button" class="btn btn-info btn-danger btn-lg btn-block">Top Picks</button>
+    </div>
+     <div class="ml-auto">
+        <a href="https://github.com/theriley106/DailyStandupQuestion" class="pull-right btn btn-lg btn-social btn-github" target="_blank">
+        <span class="fa fa-github"></span> View on Github
+        </a>
+     </div>
+  </nav>
+<body style="background-color: aqua;">
+    
+<!-- partial:index.partial.html -->
+<div class="swiping">
+  <div class="swiping--status">
+      
+    <i class="fa fa-remove"><p style="margin-left:-130px">Discard</p></i>
+    <i class="fa fa-check"><p style="margin-left:-110px">Keep</p></i>
+  </div>
+
+  <div class="swiping--cards">
+    {% for card in values %}
+    <div id="{{card['id']}}" class="swiping--card card-{{card['class']}}" >
+        <div style="background-color: {{card['color']}}; padding-top:20px"><h2 style="padding-bottom:10px">Poem #{{ card["id"] }}</h2></div>
+        <span style="white-space: pre-line">{{card['text']}}</span>
+        <p id="{{card['id_val']}}" style='visibility: hidden;'>{{card['about']|safe}}</p>
+      </div>
+    {% endfor %}
+    
+      
+  </div>
+
+  <div class="modal fade" id="exampleModalCenterAbout" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">That's Incorrect!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          About
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">That's Incorrect!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="output">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+<footer class="page-footer font-small blue fixed-bottom">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+       <a href="http://www.christopherlambert.me/" target="_blank"> Christopher Lambert</a>
+    </div>
+    <!-- Copyright -->
+ </footer>
+<!-- partial -->
+  <script src='https://hammerjs.github.io/dist/hammer.min.js'></script>
+
+  <script>
+      'use strict';
+
+var swipingContainer = document.querySelector('.swiping');
+var allCards = document.querySelectorAll('.swiping--card');
+var nope = document.getElementById('nope');
+var love = document.getElementById('love');
+
+function initCards(card, index) {
+  var newCards = document.querySelectorAll('.swiping--card:not(.removed)');
+
+  newCards.forEach(function (card, index) {
+    card.style.zIndex = allCards.length - index;
+    card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+    card.style.opacity = (10 - index) / 10;
+  });
+  
+  swipingContainer.classList.add('loaded');
+}
+
+initCards();
+
+allCards.forEach(function (el, i) {
+  var hammertime = new Hammer(el);
+  var generateGuess = false;
+
+  hammertime.on('pan', function (event) {
+    el.classList.add('moving');
+  });
+
+  hammertime.on('pan', function (event) {
+    if (event.deltaX === 0) return;
+    if (event.center.x === 0 && event.center.y === 0) return;
+
+    swipingContainer.classList.toggle('swiping_love', event.deltaX > 0);
+    swipingContainer.classList.toggle('swiping_nope', event.deltaX < 0);
+
+    if (event.deltaX > 0) {
+        generateGuess = false;
+    } else {
+        generateGuess = true;
+    }
+    var xMulti = event.deltaX * 0.03;
+    var yMulti = event.deltaY / 80;
+    var rotate = xMulti * yMulti;
+
+    event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+  });
+
+  hammertime.on('panend', function (event) {
+    el.classList.remove('moving');
+    swipingContainer.classList.remove('swiping_love');
+    swipingContainer.classList.remove('swiping_nope');
+
+    var moveOutWidth = document.body.clientWidth;
+    var status = el.classList.contains('card-generated');
+    var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+    
+    event.target.classList.toggle('removed', !keep);
+
+    if (keep) {
+      event.target.style.transform = '';
+      
+    } else {
+    
+      var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+      var toX = event.deltaX > 0 ? endX : -endX;
+      var endY = Math.abs(event.velocityY) * moveOutWidth;
+      var toY = event.deltaY > 0 ? endY : -endY;
+      var xMulti = event.deltaX * 0.03;
+      var yMulti = event.deltaY / 80;
+      var rotate = xMulti * yMulti;
+
+      event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+      
+      initCards();
+    }
+    if (!generateGuess){
+        var url = '/isGood/' + el.id.toString() + 'good';
+        fetch(url);
+    } else {
+        var url = '/isGood/' + el.id.toString() + 'bad';
+        fetch(url);
+    }
+  });
+});
+
+function createButtonListener(love) {
+  return function (event) {
+    var cards = document.querySelectorAll('.swiping--card:not(.removed)');
+    var moveOutWidth = document.body.clientWidth * 1.5;
+
+    if (!cards.length) return false;
+
+    var card = cards[0];
+
+    card.classList.add('removed');
+
+    if (love) {
+      card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+    } else {
+      card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+    }
+
+    initCards();
+
+    event.preventDefault();
+  };
+}
+
+var nopeListener = createButtonListener(false);
+var loveListener = createButtonListener(true);
+
+nope.addEventListener('click', nopeListener);
+love.addEventListener('click', loveListener);
+
+    
+   </script>
+</html>
