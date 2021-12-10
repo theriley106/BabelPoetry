@@ -28,11 +28,40 @@ Computer generated poetry is an interesting branching point from this idea, and 
 
 So unfortunately, there weren't a ton of options available for large datasets of poems, and I knew I needed 
 
+### Plan A - ProjectGutenberg
+
+
+
 I was able to find something called Project Gutenburg, which is a project that works to maintain an archive of public domain books and poetry. Project Gutenberg also has a well documented public API, so it was easy enough to write a script that looped through and downloaded every piece of abstract poetry in the public domain:
 
 ![alt text](/static/guten.png)
 
+After gathering the dataset containing all abstract poetry from their archive, I noticed 2 things:
 
+- It's difficult to programatically remove text that's *not* poetry from public domain books
+- The number of abstract poems in the public domain are relatively limited, so the dataset was simply not large enough to generate quality poems
+
+### Plan B - PoetryFoundation
+
+This ended up being a bit more complex, and you can see the full code in the
+
+Esentially, I wrote a script that looped through every search result on PoetryFoundation and found all poems that had a tag indicating they were an abstract poem:
+
+![alt text](/static/search.png)
+
+For each of the saved URLs it went to the page containing the plain text poem and put it into the dataset:
+
+![alt text](/static/text.png)
+
+It took a really long time to download all of the poems...
+
+![alt text](/static/download.png)
+
+This resulted in a dataset containing ~9,400 poems, which is the largest poetry dataset available online. 
+
+I wanted to make it available for others to use for academic/research purposes, so I open-sourced this project and put the dataset on Kaggle so people can create more sophisticated poetry generation models:
+
+![alt text](/static/kaggle.png)
 
 
 # Results
