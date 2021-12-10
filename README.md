@@ -14,28 +14,37 @@ the greatest tragedy
 is being convinced we are not
 ```
 
-So of course generating 1:1 copies of a Rupi Kaur poem isn't really something that's feasible with the technology we have today, nor is it even particularly interesting from a poetry perspective, but what if we wanted to generate *new* poems in the **style** of Rupi Kaur? 
+So of course generating 1:1 copies of a Rupi Kaur poem isn't really something that's feasible with the technology we have today, nor is it even particularly interesting from a poetry perspective, but what if we wanted to generate *new* poems in the **style** of a particular poet or genre? 
+
+Well it turns out this idea of text generation is a growing area of research in computer science, and a number of academic and institutional researchers are making breakthroughs in the field. A perfect example of this can be found in OpenAI's GPT-2 model, which is an unsupervised language model that is capable of generating text that's completely indistiguishable from human words. 
+
+A number of conversational AI applications are based on a fine-tuned version of GPT-2's language model -- this prompted the question: 
+
+### What if we could finetune GPT-2's language model on a dataset of poetry?
+
+Hypothetically speaking, if we had a large enough dataset of text and the computing power required, we could use transfer learning to *fine-tune* the GPT-2 model to create poetry.
 
 
 
-One characteristic that I've noticed throughout our class is that oftentimes the same poem can be interepreted differently by different readers -- this is especially true with Abstract poetry.
+Machine learning models are trained on large datasets of previous work and the models are able to create new pieces that are directly influenced by prior work. In a sense this is removing (or at least heavily abstracting away) the poet away from the poetry, but from my perspective this is actually synthesizing the ideas and style of thousands of other poets
+
+One characteristic that I've noticed throughout our class is that oftentimes the same poem can be interepreted differently by different readers -- this is especially true with abstract poetry.
 
 Computer generated poetry is an interesting branching point from this idea, and it prompts the question -- if you train a neural net on hundreds of thousands of poems, would the new words generated and inspired by the training data be a poem? 
 
 # How It's Made
 
-## Dataset
+## Step 1 - Gathering The Dataset
 
 So unfortunately, there weren't a ton of options available for large datasets of poems, and I knew I needed 
 
 ### Plan A - ProjectGutenberg
 
-
-
 I was able to find something called Project Gutenburg, which is a project that works to maintain an archive of public domain books and poetry. Project Gutenberg also has a well documented public API, so it was easy enough to write a script that looped through and downloaded every piece of abstract poetry in the public domain:
 
-![alt text](/static/guten.png)
-
+<p align="center">
+  <img src="/static/guten.png" width="400"/>
+</p>
 After gathering the dataset containing all abstract poetry from their archive, I noticed 2 things:
 
 - It's difficult to programatically remove text that's *not* poetry from public domain books
@@ -47,7 +56,9 @@ This ended up being a bit more complex, and you can see the full code in the
 
 Esentially, I wrote a script that looped through every search result on PoetryFoundation and found all poems that had a tag indicating they were an abstract poem:
 
-![alt text](/static/search.png)
+<p align="center">
+  <img src="/static/search.png" width="400"/>
+</p>
 
 For each of the saved URLs it went to the page containing the plain text poem and put it into the dataset:
 
@@ -59,10 +70,8 @@ For each of the saved URLs it went to the page containing the plain text poem an
 It took a really long time to download all of the poems...
 
 <p align="center">
-  <img src="/static/download.png" width="250"/>
+  <img src="/static/download.png" width="400"/>
 </p>
-
-
 
 This resulted in a dataset containing ~9,400 poems, which is the largest poetry dataset available online. 
 
@@ -70,10 +79,45 @@ I wanted to make it available for others to use for academic/research purposes, 
 
 ![alt text](/static/kaggle.png)
 
+# Step 2 - Training
 
-# Results
+I don't have a super fancy computer that could do the training really quickly, so I ended up having to train the model on my laptop, which took an exhorbinent amount of time.
 
-These are a collection of poems that I thought were particularly interesting.
+Luckily I started on this project at the beginning of November, so I had a decent amount of time to train the model and work through any issues.
+
+# Step 3 - Filter Results
+
+I wanted to comb through the collection of generated poems to remove the ones that were completely nonsense (example below). I noticed that a handful of the generated poems had fragments of poems from the training set inside, so I think I may have overfitted the model to some degree.
+
+Example of a ridiculous poem:
+
+```
+I have a dead fish
+hook to point out.
+If a drawer is a house,
+in which do you live?
+liudto the garden, I’ll never know.
+My tee, a quilt of boiled rice,
+has a house just like yours.
+I have a pot of  trout,
+a bucket of  trout,
+the smell of  a dead fish.
+For example, I’ll pick up my daughter from the kitchen
+and let the brine
+them for about an hour,
+until they grow back,
+and I know
+I know
+I’ll have to show them to the gardener until they start to eat.
+```
+
+Another thing I noticed was that spacing is really difficult to get right with the generated poems.
+
+I would say only about **~15%** of the generated poems had meaningful content.
+
+# Step 4 - Results
+
+These are a collection of my favorite poems that were generated from the model.
 
 ### Dear Son
 
