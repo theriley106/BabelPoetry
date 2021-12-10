@@ -1,5 +1,7 @@
 # Babel Poetry
 
+<h2 align="center"><a href="http://babelpoetry.com/">View The Web App Demo of This Project Here</a></h2>
+
 ## Introduction
 
 The title "Babel Poetry" is based on a short story called "The Library of Babel" by Jorge Luis Borges.
@@ -24,11 +26,13 @@ A number of conversational AI applications are based on a fine-tuned version of 
 
 Hypothetically speaking, if we had a large enough dataset of text and the computing power required, we could use transfer learning to *fine-tune* the GPT-2 model to create poetry.
 
-Machine learning models are trained on large datasets of previous work and the models are able to create new pieces that are directly influenced by prior work. In a sense this is removing (or at least heavily abstracting away) the poet away from the poetry, but from my perspective this is actually synthesizing the ideas and style of thousands of other poets to create something new.
+Machine learning models are trained on large datasets of previous work and the models are able to create new pieces that are directly influenced by prior work. 
 
 ## What is it
 
+The goal of this project was to train a machine learning model on thousands of pieces of poetry to generate new *meaningful* poetry that's impossible to differentiate from the work of a human.
 
+In a sense this idea of using AI to generate poetry is removing (or at least heavily abstracting away) the poet away from the poetry, but from my perspective this is actually synthesizing the ideas and style of thousands of other poets to create something new.
 
 ## How It's Made
 
@@ -36,7 +40,7 @@ Machine learning models are trained on large datasets of previous work and the m
 
 So unfortunately, there weren't a ton of options available for large datasets of poems, and I knew I needed 
 
-#### Plan A - ProjectGutenberg
+#### Plan A - Use ProjectGutenberg
 
 I was able to find something called Project Gutenburg, which is a project that works to maintain an archive of public domain books and poetry. Project Gutenberg also has a well documented public API, so it was easy enough to write a script that looped through and downloaded every piece of abstract poetry in the public domain:
 
@@ -48,7 +52,7 @@ After gathering the dataset containing all abstract poetry from their archive, I
 - It's difficult to programatically remove text that's *not* poetry from public domain books
 - The number of abstract poems in the public domain are relatively limited, so the dataset was simply not large enough to generate quality poems
 
-#### Plan B - PoetryFoundation
+#### Plan B - Use PoetryFoundation
 
 This ended up being a bit more complex, and you can see the full code in the
 
@@ -85,7 +89,7 @@ Luckily I started on this project at the beginning of November, so I had a decen
 
 ### Step 3 - Filter Results
 
-I wanted to comb through the collection of generated poems to remove the ones that were completely nonsense (example below). I noticed that a handful of the generated poems had fragments of poems from the training set inside, so I think I may have overfitted the model to some degree.
+After the model was fully trained, I generated 100's of new poems and needed to comb through the collection of generated poems to remove the ones that were completely nonsense (example below). I noticed that a handful of the generated text had fragments of poems from the training set inside, so I think I may have overfitted the model to some degree. 
 
 Example of a ridiculous poem:
 
@@ -108,8 +112,6 @@ and I know
 I know
 I’ll have to show them to the gardener until they start to eat.
 ```
-
-Another thing I noticed was that spacing is really difficult to get right with the generated poems.
 
 I would say only about **~15%** of the generated poems had meaningful content.
 
@@ -311,6 +313,8 @@ I remember you.
  I kept forgetting you.
 ```
 
-# Retrospective
+### Step 5 - Interactive
 
-This was a really fun project to work on, and it I think it made me re-evaluate the role the reader plays in analyzing a piece of poetry.
+I wanted to create a way for folks to interact with the results, and I thought it would be interesting to see if people were able to differentiate between the generated work and poetry that's been written by users on PoetryFoundation.
+
+I created the website: http://babelpoetry.com/
