@@ -70,6 +70,7 @@ These are a collection of poems that I thought were particularly interesting.
 
 ### Dear Son
 
+```
 I am proud of you,
 because of your kindness,
 but I am also proud of you
@@ -83,9 +84,11 @@ you must be grateful
 to have made me this— 
 I have no other choice,
 but to walk away.
+```
 
 ### The Most Famous Poet In History
 
+```
 The most famous poet in history
 is beating his chest,
 howling on his chest
@@ -102,9 +105,11 @@ a man. Beneath
 the broken is a weapon
 that can be used to wreck
 the world.
+```
 
 ### Mother's Hands
 
+```
 This is how my mother’s hands
  changed
  as I grew up.
@@ -125,9 +130,11 @@ This is how my mother’s hands
  the hands
  getting smaller
  each day.
+```
 
 ### One thing we don't have is love
 
+```
 What’s so hard about the world is that it’s a bit too much
 which is a big part of the reason I hate everything about it
 which is that we’re so good and so beautiful
@@ -141,9 +148,11 @@ And come on?
 How can you be so good at anything?
 Is there no way to love another person?
 Is there anything we don’t have?
+```
 
 ### Sober
 
+```
 A summer night,
 I stayed up late,
 watched the clock in the ceiling
@@ -155,9 +164,11 @@ I didn’t believe it then.
 Now I understand my rooms that I enter by foot to reek of  alcohol.
 When the sun sets I think of what I left behind.
 This summer is my summer.
+```
 
 ### Strawberries
 
+```
 Strawberries!
 Sweet blossom — 
 What is that?
@@ -168,9 +179,11 @@ I love that,
 I’m old.
 We can rest
 at ease.
+```
 
 ### 
 
+```
 My clothes have been collected
  and I am thus entered
  into the maze of personalities
@@ -188,9 +201,11 @@ My clothes have been collected
  and think
  of others.
  I am the child of your breath.
+```
 
 ### The City Never Sleeps
 
+```
 The somber pit of the city with its thick layers of glass
  and stone, and the empty warehouse
  where the giddy light came to us,
@@ -216,9 +231,11 @@ The somber pit of the city with its thick layers of glass
  and the empty cube, and the empty sky,
  the empty city of the soul
  and the empty sky,
+```
 
 ###
 
+```
 I remember you.
  No one
 
@@ -243,7 +260,7 @@ I remember you.
  Your last poem
 
  I kept forgetting you.
-
+```
 
 
 ## Observations
