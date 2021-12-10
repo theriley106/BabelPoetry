@@ -65,3 +65,188 @@ I wanted to make it available for others to use for academic/research purposes, 
 
 
 # Results
+
+These are a collection of poems that I thought were particularly interesting.
+
+### Dear Son
+
+I am proud of you,
+because of your kindness,
+but I am also proud of you
+because I am no stranger
+to leaving your life.
+I am proud of you because
+please tell me what you’re thinking,
+when you’re smiling, when you’re laughing, because they are
+not your problems, but theirs—
+you must be grateful
+to have made me this— 
+I have no other choice,
+but to walk away.
+
+### The Most Famous Poet In History
+
+The most famous poet in history
+is beating his chest,
+howling on his chest
+and the ground.
+The only thing
+that keeps him alive is
+the way
+he breaks. He breaks
+not just because of grief,
+but of pain.
+Beneath the stone
+I am not a stone, a dead body,
+a man. Beneath
+the broken is a weapon
+that can be used to wreck
+the world.
+
+### Mother's Hands
+
+This is how my mother’s hands
+ changed
+ as I grew up.
+ I was raised
+ by strangers and
+ always played by strangers
+ ages 16 and 17.
+ My father
+ was my older brother’s
+ teacher,
+ the one who taught me
+ to cook alone.
+ I remember
+ his hands
+ turning red as he
+ died.
+ I remember
+ the hands
+ getting smaller
+ each day.
+
+### One thing we don't have is love
+
+What’s so hard about the world is that it’s a bit too much
+which is a big part of the reason I hate everything about it
+which is that we’re so good and so beautiful
+ 
+and do we ever get upset at being painted out from all of it?
+Is this why my father says it was wrong to leave me when he was just a child?
+That’s not how it should be.
+
+Who’s been there to me?
+And come on?
+How can you be so good at anything?
+Is there no way to love another person?
+Is there anything we don’t have?
+
+### Sober
+
+A summer night,
+I stayed up late,
+watched the clock in the ceiling
+and remembered the girls’ names in the kitchen. 
+I felt like I was there.
+The two-by-fours swam out of the house 
+like a bloodhound I wanted to escape from.
+I didn’t believe it then.
+Now I understand my rooms that I enter by foot to reek of  alcohol.
+When the sun sets I think of what I left behind.
+This summer is my summer.
+
+### Strawberries
+
+Strawberries!
+Sweet blossom — 
+What is that?
+This how I’ve always been told:
+Play it safe and clear.
+I’m old;
+I love that,
+I’m old.
+We can rest
+at ease.
+
+### 
+
+My clothes have been collected
+ and I am thus entered
+ into the maze of personalities
+ I have been seeking.
+ I want to work with you,
+ putting all my bones
+ together.
+ My body has been broken
+ and especially my head has been
+ eaten.
+ I am the child
+ of memory.
+ I have learned
+ to leave my place
+ and think
+ of others.
+ I am the child of your breath.
+
+### The City Never Sleeps
+
+The somber pit of the city with its thick layers of glass
+ and stone, and the empty warehouse
+ where the giddy light came to us,
+ a view of the city from the city,
+ a dozen terraces of trees, a view of the entire city
+ from the swanky opulence of the opulent palace,
+ and the empty courtyard, where all our traumas were
+ already tacked onto the image, the new black satellite
+ or satellite dish, and the empty whole of the city,
+ the sound of a rat on the sidewalk, a rat on the paint
+ and the smell of its chorused aroma, the smell of rat —
+ the rats in the street, the rats in the room — the rats
+ and the whole city, and the empty courtyard,
+ the dull vaulting of the heart, and the empty whole
+ of the city: the time we spent together,
+ the time we shared the city, the time we sat there
+ and watched our possessions, the empty courtyard,
+ the sleek and commodious apartment, and the empty city,
+ the empty city of the soul, and the empty cube
+ and the empty glass and the empty sky,
+ the empty sky and the empty city,
+ the empty city of the soul
+ and the empty cube, and the empty sky,
+ the empty city of the soul
+ and the empty sky,
+
+###
+
+I remember you.
+ No one
+
+ Could have ever imagined
+
+ Who’d captured a more beautiful nation.
+
+ The last recorded photo
+
+ of you writing a poem
+
+ Across the street
+
+           from the old house I remember
+
+ Your voice.
+
+ My eyes were wide open
+
+ When you wrote
+
+ Your last poem
+
+ I kept forgetting you.
+
+
+
+## Observations
+
+Spacing is really tough to get right.
+
