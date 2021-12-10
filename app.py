@@ -114,6 +114,13 @@ def onlyGood():
 
 @app.route('/', methods=['GET'])
 def index():
+    values = []
+    for i in range(10):
+        x = poem_to_api_response(get_good_poem())
+        x['id_val'] = "about-{}".format(x['id'])
+        values.append(x)
+
+    return render_template("swipe.html", values=values)
     about = """
         This is an auto-generated poem by GPT-2
     """
