@@ -69,8 +69,7 @@ def poem_to_api_response(poem):
         classVal = "generated"
     else:
         about = """
-            This is a poem called <b>Testin Poem</b>
-            written by <b>Testing Again</b>
+            This is not an auto-generated poem
         """
         classVal = "human"
     
