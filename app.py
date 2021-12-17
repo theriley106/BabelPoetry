@@ -86,7 +86,7 @@ def poem_to_api_response(poem):
     }
 
 def get_good_poem():
-    a = open("good.txt").read().split("\n")
+    a = list(set(open("good.txt").read().split("\n")))
     b = "FAKE_KEY"
     while b not in DATASET['by_id']:
         b = random.choice(a)
@@ -95,7 +95,7 @@ def get_good_poem():
     return DATASET['by_id'][b]
 
 def get_gen_poem():
-    a = open("good.txt").read().split("\n")
+    a = list(set(open("good.txt").read().split("\n")))
     b = "FAKE_KEY"
     while b not in DATASET['by_id']:
         b = random.choice(a)
@@ -104,7 +104,7 @@ def get_gen_poem():
     return DATASET['by_id'][b]
 HUMAN_POEMS = []
 
-a = open("good.txt").read().split("\n")
+a = list(set(open("good.txt").read().split("\n")))
 for val in a:
     if "gen" not in val and len(val) > 0:
         HUMAN_POEMS.append(DATASET['by_id'][val])
