@@ -19,7 +19,7 @@ BAD_POEMS = open("bad.txt").read().split("\n")
 DATASET = json.load(open("dataset.json"))
 to_rate = []
 
-for poem in DATASET['generated']:
+for poem in DATASET['human']:
     if poem['id'] not in (GOOD_POEMS + BAD_POEMS):
         to_rate.append(poem)
 
@@ -91,7 +91,26 @@ def get_good_poem():
     b = "FAKE_KEY"
     while b not in DATASET['by_id']:
         b = random.choice(a)
+
+        print(b)
     return DATASET['by_id'][b]
+
+def get_gen_poem():
+    a = open("good.txt").read().split("\n")
+    b = "FAKE_KEY"
+    while b not in DATASET['by_id'] and "gen" not in b:
+        b = random.choice(a)
+    return DATASET['by_id'][b]
+HUMAN_POEMS = []
+
+a = open("good.txt").read().split("\n")
+for val in a:
+    if "gen" not in val and len(val) > 0:
+        HUMAN_POEMS.append(DATASET['by_id'][val])
+def get_human_poems():
+    random.shuffle(HUMAN_POEMS)
+    return HUMAN_POEMS[:5]
+
 
 
 @app.route('/rate', methods=['GET'])
@@ -115,10 +134,19 @@ def onlyGood():
 @app.route('/', methods=['GET'])
 def index():
     values = []
-    for i in range(10):
+    for i in range(5):
         x = poem_to_api_response(get_good_poem())
         x['id_val'] = "about-{}".format(x['id'])
         values.append(x)
+
+    for val in get_human_poems():
+        x = poem_to_api_response(val)
+        x['id_val'] = "about-{}".format(x['id'])
+        values.append(x)
+
+    random.shuffle(values)
+
+    
 
     return render_template("swipe.html", values=values)
     about = """
@@ -126,8 +154,7 @@ def index():
     """
 
     about = """
-        This is a poem called <b>Testin Poem</b>
-        written by <b>Testing Again</b>
+        This is not an auto-generated poem
     """
     values = []
     for i in range(10):
