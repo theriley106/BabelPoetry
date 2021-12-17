@@ -97,8 +97,10 @@ def get_good_poem():
 def get_gen_poem():
     a = open("good.txt").read().split("\n")
     b = "FAKE_KEY"
-    while b not in DATASET['by_id'] and "gen" not in b:
+    while b not in DATASET['by_id']:
         b = random.choice(a)
+        if "gen" not in str(b):
+            b = "FAKE_KEY"
     return DATASET['by_id'][b]
 HUMAN_POEMS = []
 
@@ -137,13 +139,14 @@ def index():
         x = poem_to_api_response(get_good_poem())
         x['id_val'] = "about-{}".format(x['id'])
         values.append(x)
-
+    r = values.pop(0)
     for val in get_human_poems():
         x = poem_to_api_response(val)
         x['id_val'] = "about-{}".format(x['id'])
         values.append(x)
 
     random.shuffle(values)
+    values = [r] + values
 
     
 
